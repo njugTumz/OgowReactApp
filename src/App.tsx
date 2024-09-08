@@ -6,7 +6,6 @@ import About from './pages/About';
 import Login from './pages/Login';
 import { useAuth } from './context/AuthContext';
 import Header from './pages/Header';
-import './app.css'; // Ensure this line is present
 import HealthFacilityList from './components/HealthFacilityList';
 import HealthWorkers from './components/HealthWorkerList';
 import PatientList from './components/PatientList';
