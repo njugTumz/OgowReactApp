@@ -1,18 +1,20 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Button, TextField, Container, Typography, Box, Paper } from '@mui/material';
+import { Button, TextField, Container, Typography, Box, Paper, CircularProgress } from '@mui/material';
 import { useAuth } from '../context/AuthContext';
 import { login } from '../services/apiService';
 
 const Login: React.FC = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState(false); // Add loading state
   const navigate = useNavigate();
   const { login: setAuth } = useAuth();
 
   const handleLogin = async (event: React.FormEvent) => {
     event.preventDefault();
+    setLoading(true); // Set loading to true when starting login
 
     try {
       const token = await login(username, password);
@@ -20,6 +22,8 @@ const Login: React.FC = () => {
       navigate('/');
     } catch (error:any) {
       alert(error.message);
+    } finally {
+      setLoading(false); // Set loading to false after login attempt
     }
   };
 
@@ -28,7 +32,7 @@ const Login: React.FC = () => {
       <Paper elevation={6} sx={{ padding: '2rem', borderRadius: '12px', backgroundColor: '#f5f5f5' }}>
         <Box display="flex" flexDirection="column" alignItems="center">
           <Typography variant="h6" gutterBottom sx={{ marginBottom: '1rem', fontWeight: 'bold', color: '#9c27b0' }}>
-          Health Facility Management System
+            Health Facility Management System
           </Typography>
           <Typography variant="body1" color="textSecondary" gutterBottom sx={{ marginBottom: '1rem' }}>
             Please sign in to continue
@@ -66,8 +70,9 @@ const Login: React.FC = () => {
               color="primary"
               fullWidth
               sx={{ backgroundColor: '#9c27b0', marginTop: '1rem' }}
+              disabled={loading} // Disable button while loading
             >
-              Login
+              {loading ? <CircularProgress size={24} color="inherit" /> : 'Login'} {/* Show spinner or text */}
             </Button>
           </form>
         </Box>
