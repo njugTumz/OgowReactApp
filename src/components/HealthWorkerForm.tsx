@@ -1,3 +1,4 @@
+/* eslint-disable no-debugger */
 import React, { useState, useEffect } from 'react';
 import { TextField, Button, Select, MenuItem, InputLabel, FormControl } from '@mui/material';
 import { HealthWorker } from '../models/types';
@@ -31,6 +32,7 @@ const HealthWorkerForm: React.FC<HealthWorkerFormProps> = ({ initialData, onSubm
 
   useEffect(() => {
     if (initialData) {
+      debugger;
       setId(initialData.id); // Updated to number
       setName(initialData.name);
       setDesignation(initialData.designation);
@@ -86,8 +88,8 @@ const HealthWorkerForm: React.FC<HealthWorkerFormProps> = ({ initialData, onSubm
       <FormControl fullWidth margin="normal">
         <InputLabel>Health Facility</InputLabel>
         <Select
-          value={healthFacilityId || ''} // Default to empty string if undefined
-          onChange={(e) => setHealthFacilityId(Number(e.target.value))} // Ensure value is cast to number
+           value={healthFacilityId !== undefined ? healthFacilityId : ''}  // Default to empty string if undefined
+           onChange={(e) => setHealthFacilityId(Number(e.target.value))} // Ensure value is cast to number
           label="Select Health Facility"
         >
           {healthFacilities.map((facility) => (

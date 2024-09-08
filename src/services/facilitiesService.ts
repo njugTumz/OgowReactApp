@@ -1,3 +1,4 @@
+/* eslint-disable no-debugger */
 // facilitiesService.ts
 import axios from 'axios';
 import { FacilityFData, HealthFacility, HealthWorker, Patient } from '../models/types';
