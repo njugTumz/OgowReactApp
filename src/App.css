@@ -1,0 +1,28 @@
+/* Basic styling for the navigation links */
+.nav-link {
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  padding: 10px 15px;
+  transition: color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+/* Change color for the active link */
+.nav-link.active {
+  color: white !important; /* Change the color when active */
+  background-color: #ffffff20; /* Optional: light background for active tab */
+}
+
+/* Add hover effects to all links */
+.nav-link:hover {
+  color: white !important; /* Different color when hovering */
+}
+
+/* Custom CSS to override the selected tab's color */
+.MuiTab-root.Mui-selected {
+  color: white !important; /* Use !important to ensure it overrides the default */
+}
+
+.css-19wsa2m-MuiButtonBase-root-MuiTab-root.Mui-selected  {
+  color: white !important;
+}
