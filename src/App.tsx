@@ -22,13 +22,18 @@ const App: React.FC = () => {
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/" element={isAuthenticated ? <Home /> : <Navigate to="/login" />} />
-          <Route path="/about" element={isAuthenticated && Role.includes('Super Admin') ? <About /> : <Navigate to="/login" />} />
-          <Route path="/health-facilities" element={isAuthenticated && Role.includes('Super Admin') ? <HealthFacilityList /> : <Navigate to="/login" />} />
-        
-          <Route path="/health-workers" element={isAuthenticated && Role.includes('Super Admin') ? <HealthWorkers /> : <Navigate to="/login" />} />
-          <Route path="/patients" element={isAuthenticated && Role.includes('Super Admin') ? <PatientList /> : <Navigate to="/login" />} />
-          <Route path="/users" element={isAuthenticated && Role.includes('Super Admin') ? <UsersList /> : <Navigate to="/login" />} />
-          <Route path="/roles" element={isAuthenticated && Role.includes('Super Admin') ? <RolesList /> : <Navigate to="/login" />} />
+          
+          {/* Super Admin Route */}
+          <Route path="/about" element={isAuthenticated && Role === 'Super Admin' ? <About /> : <Navigate to="/login" />} />
+          
+          {/* Admin or Super Admin */}
+          <Route path="/health-facilities" element={isAuthenticated && (Role === 'Super Admin' || Role === 'Admin') ? <HealthFacilityList /> : <Navigate to="/login" />} />
+          <Route path="/health-workers" element={isAuthenticated && (Role === 'Super Admin' || Role === 'Admin') ? <HealthWorkers /> : <Navigate to="/login" />} />
+          <Route path="/patients" element={isAuthenticated && (Role === 'Super Admin' || Role === 'HealthW') ? <PatientList /> : <Navigate to="/login" />} />
+          
+          {/* Admin only */}
+          <Route path="/users" element={isAuthenticated && (Role === 'Admin' || Role === 'Super Admin') ? <UsersList /> : <Navigate to="/login" />} />
+          <Route path="/roles" element={isAuthenticated && Role === 'Super Admin' ? <RolesList /> : <Navigate to="/login" />} />
         </Routes>
       </Container>
     </Router>

@@ -20,14 +20,36 @@ const Header: React.FC = () => {
   return (
     <AppBar position="static">
       <Tabs value={value} onChange={handleChange} centered>
-        {isAuthenticated && Role.includes('Super Admin') && (
+        {isAuthenticated && (
           <>
             <Tab label="Dashboard" component={Link} to="/" />
-            <Tab label="Health Facilities" component={Link} to="/health-facilities" />
-            <Tab label="Health Workers" component={Link} to="/health-workers" />
-            <Tab label="Patients" component={Link} to="/patients" />
-            <Tab label="Users" component={Link} to="/patients" />
-            <Tab label="Roles" component={Link} to="/roles" />
+            
+            {/* Admin and Super Admin */}
+            {(Role === 'Super Admin') && (
+              <>
+                <Tab label="Health Facilities" component={Link} to="/health-facilities" />
+                <Tab label="Health Workers" component={Link} to="/health-workers" />
+                <Tab label="Patients" component={Link} to="/patients" />
+                <Tab label="Users" component={Link} to="/users" />
+                <Tab label="Roles" component={Link} to="/roles" />
+              </>
+            )}
+
+            {/* Super Admin only */}
+            {Role === 'Admin' && (
+              <>
+                <Tab label="Health Facilities" component={Link} to="/health-facilities" />
+                <Tab label="Health Workers" component={Link} to="/health-workers" />
+                <Tab label="Users" component={Link} to="/users" />
+              </>
+            )}
+
+            {/* Admin only */}
+            {Role === 'HealthW' && (
+              <>
+                 <Tab label="Patients" component={Link} to="/patients" />
+              </>
+            )}
           </>
         )}
       </Tabs>

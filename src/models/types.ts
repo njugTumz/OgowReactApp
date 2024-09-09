@@ -37,5 +37,18 @@ export interface Patient {
   healthFacilityId: number;
 }
 
+export interface User {
+  id: number;
+  name: string;
+  password: string;
+  email: string;
+  roleName:string;
+}
+
+export interface Role {
+  id: number;
+  name: string;
+}
+
 
   

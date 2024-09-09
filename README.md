@@ -8,7 +8,7 @@ Currently, two official plugins are available:
 - **[@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc)**: Uses [SWC](https://swc.rs/) for Fast Refresh.
 
 ## Live Website Link
-https://nice-grass-090a47503.5.azurestaticapps.net/login
+https://jolly-stone-0bb101303.5.azurestaticapps.net/login
 
 -Its Hosted on Azure using Azure Static Web Apps
 # Use Credentials to Log in
