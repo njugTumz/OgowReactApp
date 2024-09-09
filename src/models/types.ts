@@ -35,6 +35,7 @@ export interface Patient {
   gender: string;
   address: string;
   healthFacilityId: number;
+  healthFacility?: HealthFacility;
 }
 
 export interface User {

@@ -54,6 +54,7 @@ const PatientList: React.FC = () => {
             <TableCell>Name</TableCell>
             <TableCell>Gender</TableCell>
             <TableCell>Address</TableCell>
+            <TableCell>Health Facility</TableCell>
             <TableCell>Actions</TableCell>
           </TableRow>
         </TableHead>
@@ -63,6 +64,7 @@ const PatientList: React.FC = () => {
               <TableCell>{patient.name}</TableCell>
               <TableCell>{patient.gender}</TableCell>
               <TableCell>{patient.address}</TableCell>
+              <TableCell>{patient.healthFacility?.name}</TableCell>
               <TableCell>
                 <Button onClick={() => handleOpenDialog(patient)} variant="outlined" color="primary" sx={{ marginRight: 1 }}>Edit</Button>
                 <Button color="secondary" onClick={() => handleDelete(patient.id)}>Delete</Button>
