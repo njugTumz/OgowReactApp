@@ -46,7 +46,7 @@ const Login: React.FC = () => {
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               placeholder="Enter your username"
-              helperText="Default: superadmin@gmail.com"
+              helperText="superadmin@gmail.com"
               sx={{ marginBottom: '1rem' }}
             />
             <TextField
@@ -58,7 +58,7 @@ const Login: React.FC = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="Enter your password"
-              helperText="Default: 12Buns3*"
+              helperText="12Buns3*"
               sx={{ marginBottom: '1.5rem' }}
             />
             <Button
