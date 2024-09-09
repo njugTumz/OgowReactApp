@@ -25,7 +25,7 @@ export interface HealthWorker {
   email: string;
   phoneNumber: string;
   healthFacilityId: number;
-  healthFacilityName?: string;
+  healthFacility?: HealthFacility;
 }
 
 // models/types.ts
