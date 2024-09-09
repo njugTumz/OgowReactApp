@@ -37,9 +37,6 @@ const Login: React.FC = () => {
           <Typography variant="body1" color="textSecondary" gutterBottom sx={{ marginBottom: '1rem' }}>
             Please sign in to continue
           </Typography>
-          <Typography variant="body2" color="textSecondary" sx={{ marginBottom: '1rem' }}>
-            Default credentials: <strong>Username: superadmin@gmail.com</strong>, <strong>Password: 12Buns3*</strong>
-          </Typography>
           <form onSubmit={handleLogin} style={{ width: '100%' }}>
             <TextField
               label="Username"
