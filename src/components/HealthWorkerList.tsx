@@ -9,8 +9,13 @@ const HealthWorkerList: React.FC = () => {
   const [open, setOpen] = useState<boolean>(false);
   const [editingWorker, setEditingWorker] = useState<HealthWorker | null>(null);
 
-  useEffect(() => {
+  // Fetch the health workers when the component mounts
+  const loadHealthWorkers = () => {
     fetchHealthWorkers().then(data => setWorkers(data));
+  };
+
+  useEffect(() => {
+    loadHealthWorkers();
   }, []);
 
   const handleDelete = (id: number) => {
@@ -36,7 +41,9 @@ const HealthWorkerList: React.FC = () => {
     } else {
       createHealthWorker(data).then((newWorker: HealthWorker) => {
         setWorkers(prev => [...prev, newWorker]);
+        loadHealthWorkers();
       });
+      
     }
     setOpen(false);
   };

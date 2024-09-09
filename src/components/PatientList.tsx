@@ -9,8 +9,12 @@ const PatientList: React.FC = () => {
   const [open, setOpen] = useState<boolean>(false);
   const [editingPatient, setEditingPatient] = useState<Patient | null>(null);
 
-  useEffect(() => {
+  const LoadPatients = () => {
     fetchPatients().then(data => setPatients(data));
+  };
+
+  useEffect(() => {
+    LoadPatients();
   }, []);
 
   // Change id type from string to number
@@ -37,6 +41,7 @@ const PatientList: React.FC = () => {
     } else {
       createPatient(data).then(newPatient => {
         setPatients(prev => [...prev, newPatient]);
+        LoadPatients()
       });
     }
     setOpen(false);
